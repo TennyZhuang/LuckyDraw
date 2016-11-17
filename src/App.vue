@@ -1,6 +1,6 @@
 <template>
   <div id="app" no-scroll>
-    <lucky-card v-for="i in 5" :value="nums[i - 1]"></lucky-card>
+    <lucky-card v-for="i in total" :value="nums[i - 1]"></lucky-card>
     <mu-footer></mu-footer>
   </div>
 </template>
@@ -20,7 +20,8 @@ export default {
   data () {
     return {
       nums: [],
-      isRunning: false
+      isRunning: false,
+      total: 5
     }
   },
   created () {
@@ -48,7 +49,7 @@ export default {
     },
     update () {
       let nums = []
-      for (let i = 0; i < 5; ++i) {
+      for (let i = 0; i < this.total; ++i) {
         nums.push(Math.floor(Math.random() * 800 + 1))
       }
       this.nums = nums
