@@ -62,5 +62,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
 </style>
