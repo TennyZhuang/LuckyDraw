@@ -18,6 +18,7 @@ export default {
     height: 40px;
     line-height: 40px;
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
   }
 </style>
