@@ -7,6 +7,8 @@
 <script>
 import LuckyCard from './components/LuckyCard'
 
+const sleep = async (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
 export default {
   name: 'app',
   components: {
@@ -14,18 +16,33 @@ export default {
   },
   data () {
     return {
-      nums: []
+      nums: [],
+      isRunning: false
     }
   },
   created () {
     document.addEventListener('keyup', (e) => {
       if (e.keyCode === 32) {
-        this.update()
+        if (this.isRunning) {
+          this.stop()
+        } else {
+          this.start()
+        }
         e.preventDefault()
       }
     })
   },
   methods: {
+    async start () {
+      this.isRunning = true
+      while (this.isRunning) {
+        this.update()
+        await sleep(100)
+      }
+    },
+    stop () {
+      this.isRunning = false
+    },
     update () {
       let nums = []
       for (let i = 0; i < 5; ++i) {
