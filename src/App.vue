@@ -1,17 +1,38 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+  <div id="app" @keyup.space="update">
+    <lucky-card v-for="i in 5" :value="nums[i - 1]"></lucky-card>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import LuckyCard from './components/LuckyCard'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    LuckyCard
+  },
+  data () {
+    return {
+      nums: []
+    }
+  },
+  created () {
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode === 32) {
+        this.update()
+        e.preventDefault()
+      }
+    })
+  },
+  methods: {
+    update () {
+      let nums = []
+      for (let i = 0; i < 5; ++i) {
+        nums.push(Math.floor(Math.random() * 800 + 1))
+      }
+      this.nums = nums
+    }
   }
 }
 </script>
