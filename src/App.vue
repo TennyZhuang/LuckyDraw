@@ -1,18 +1,21 @@
 <template>
-  <div id="app" @keyup.space="update">
+  <div id="app" no-scroll>
     <lucky-card v-for="i in 5" :value="nums[i - 1]"></lucky-card>
+    <mu-footer></mu-footer>
   </div>
 </template>
 
 <script>
 import LuckyCard from './components/LuckyCard'
+import MuFooter from './components/MuFooter'
 
 const sleep = async (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 export default {
   name: 'app',
   components: {
-    LuckyCard
+    LuckyCard,
+    MuFooter
   },
   data () {
     return {
