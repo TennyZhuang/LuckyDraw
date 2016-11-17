@@ -61,13 +61,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
+  background-image: url(./assets/background.jpg);
+  background-size: cover;
+  background-position: center;
 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
+  width: 100vw;
 }
 </style>
