@@ -73,8 +73,9 @@ body {
   margin: 0;
   padding: 0;
   background-image: url(./assets/background.jpg);
-  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
   display: flex;
   flex-direction: row;

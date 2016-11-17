@@ -14,7 +14,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-  color: black;
+  color: white;
   font-size: 4em;
 }
 
@@ -22,7 +22,8 @@ h1 {
   width: 25vw;
   height: 38vh;
   margin: 20px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
+  border: solid 1px white;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
