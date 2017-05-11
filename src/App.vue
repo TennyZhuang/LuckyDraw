@@ -21,7 +21,9 @@ export default {
     return {
       nums: [],
       isRunning: false,
-      total: 5
+      total: 5,
+      min: 1,
+      max: 800
     }
   },
   created () {
@@ -35,6 +37,11 @@ export default {
         e.preventDefault()
       }
     })
+
+    const params = new window.URLSearchParams(window.location.search)
+    this.total = parseInt(params.get('total') || 5)
+    this.min = parseInt(params.get('min') || 1)
+    this.max = parseInt(params.get('max') || 800)
   },
   methods: {
     async start () {
@@ -50,7 +57,7 @@ export default {
     update () {
       let nums = []
       for (let i = 0; i < this.total; ++i) {
-        nums.push(Math.floor(Math.random() * 800 + 1))
+        nums.push(Math.floor(Math.random() * (this.max - this.min) + this.min))
       }
       this.nums = nums
     }
