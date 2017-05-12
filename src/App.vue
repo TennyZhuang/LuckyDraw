@@ -1,5 +1,5 @@
 <template>
-  <div id="app" no-scroll>
+  <div id="app" no-scroll :style="{backgroundImage: `url(${bg_url})`}">
     <lucky-card v-for="i in total" :value="nums[i - 1]"></lucky-card>
     <mu-footer></mu-footer>
   </div>
@@ -23,7 +23,8 @@ export default {
       isRunning: false,
       total: 5,
       min: 1,
-      max: 800
+      max: 800,
+      bg_url: './assets/background.jpg'
     }
   },
   created () {
@@ -39,9 +40,10 @@ export default {
     })
 
     const params = new window.URLSearchParams(window.location.search)
-    this.total = parseInt(params.get('total') || 5)
-    this.min = parseInt(params.get('min') || 1)
-    this.max = parseInt(params.get('max') || 800)
+    this.total = parseInt(params.get('total') || this.total)
+    this.min = parseInt(params.get('min') || this.min)
+    this.max = parseInt(params.get('max') || this.max)
+    this.bg_url = params.get('bg_url') || this.bg_url
   },
   methods: {
     async start () {
